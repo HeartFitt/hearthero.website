@@ -23,8 +23,22 @@
 .btnContainerfullWidth {
     width: 100%; /* Fill available width when this class is added */
 }
-   
+
 /* Button Sizes */
+.btn-sm {
+    /* border-radius: 0.5rem; */
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.5rem 0.75rem;
+}
+
+.btn-md {
+    /* border-radius: 0.5rem; */
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+}
+   
+
 .btn-lg {
     /* border-radius: 0.5rem; */
     font-size: 1rem;

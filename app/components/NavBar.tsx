@@ -68,10 +68,13 @@ const NavBar: React.FC = () => {
                                         <Button link={link.path} onClick={() => setMenuOpen(false)} label={link.name} variant='tertiary' size='lg' />
                                     </li>
                                 ))}
+                                <li>
+                                    <Button link="https://portal.hearthero.app" onClick={() => setMenuOpen(false)} label="Access Portal" variant='secondary' size='lg' />
+                                </li>
                             </ul>
                             <Button icon={<X />} label='Close' variant="secondary" size="lg" onClick={() => setMenuOpen(false)} fillWidth={false} />
                         </div>
-                    )}
+                    )}access
                 </div>
             ) : (
                 <div className='flex flex-row justify-between items-center'>
@@ -85,9 +88,9 @@ const NavBar: React.FC = () => {
                             ))}
                         </ul>
                     </div>
-                    {/* <div>
-                        <Button label="Sign Up" size="rounded" variant="secondary" fillWidth={false} />
-                    </div> */}
+                    <Link to="https://portal.hearthero.app">
+                        <Button label="Login to Portal" size="md" variant="primary" fillWidth={false} type='button'/>
+                    </Link>
                 </div>
             )}
         </nav>
