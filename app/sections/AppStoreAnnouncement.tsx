@@ -1,4 +1,6 @@
+
 import React from 'react';
+import { Link } from 'react-router';
 
 export default function AppStoreAnnouncement() {
   const APKUrl = "https://play.google.com/store/apps/details?id=host";
@@ -14,7 +16,7 @@ export default function AppStoreAnnouncement() {
         
         {/* Subtitle */}
         <h6 className="text-neutral-500">
-          Releasing on Apple AppStore and Google Play Store.
+          Available on Apple AppStore and Coming to Google Play Store.
         </h6>
         <div className='my-5'>
           {/* App store buttons */}
@@ -29,7 +31,9 @@ export default function AppStoreAnnouncement() {
               </div>
               <div className="text-left">
                 <div className="text-xs text-neutral-400 uppercase tracking-wide">Download on the</div>
-                <div className="text-xl font-semibold text-white -mt-1">App Store</div>
+                <Link to="https://apps.apple.com/us/app/hearthero-solo/id6757622917" target='_blank'>
+                  <div className="text-xl font-semibold text-white -mt-1">App Store</div>
+                </Link>
               </div>
             </div>
           </div>
@@ -43,7 +47,7 @@ export default function AppStoreAnnouncement() {
                 </svg>
               </div>
               <div className="text-left">
-                <div className="text-xs text-neutral-400 uppercase tracking-wide">Get it on</div>
+                <div className="text-xs text-neutral-400 uppercase tracking-wide">Coming soon to</div>
                 <div className="text-xl font-semibold text-white -mt-1">Google Play</div>
               </div>
             </div>
