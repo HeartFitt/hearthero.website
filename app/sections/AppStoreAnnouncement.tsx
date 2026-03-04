@@ -11,7 +11,7 @@ export default function AppStoreAnnouncement() {
         
         {/* Main heading */}
         <h2 className="text-5xl md:text-6xl font-bold text-white tracking-tight">
-          Coming Winter 2025
+          Download Now!
         </h2>
         
         {/* Subtitle */}
@@ -39,7 +39,7 @@ export default function AppStoreAnnouncement() {
           </div>
           
           {/* Google Play Button */}
-          <div className="bg-black border border-neutral-600 rounded-lg px-6 py-3 hover:bg-neutral-900 transition-colors cursor-pointer group">
+          <div className="bg-black border border-neutral-600 rounded-lg px-6 py-3 hover:bg-neutral-900 transition-colors group opacity-50">
             <div className="flex items-center space-x-3">
               <div className="text-white">
                 <svg className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
