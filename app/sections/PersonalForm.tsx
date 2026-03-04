@@ -124,7 +124,7 @@ const ContactForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className="max-w-[50rem] mx-auto lg:p-6 p-2 text-neutral-100">
-      <h2 className="text-2xl font-semibold mb-1 text-center">Join the Waitlist</h2>
+      <h2 className="text-2xl font-semibold mb-1 text-center">Reach Out</h2>
       <p className="text-sm text-center mb-6">Help us personalize your fitness journey by answering a few questions</p>
 
       <div className='grid grid-cols-2 gap-2 justify-stretch'>

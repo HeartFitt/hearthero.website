@@ -24,13 +24,13 @@ export default function Personal() {
                       <VideoPlayer />
                   </div>
                 </ScrollFadeIn>
+                <ScrollFadeIn direction="up" delay={0.4}>
+                  <AppStoreAnnouncement/>
+                </ScrollFadeIn>
                 <ScrollFadeIn direction="up" delay={0.2}>
                   <div>
                       <ContactForm />
                   </div>
-                </ScrollFadeIn>
-                <ScrollFadeIn direction="up" delay={0.4}>
-                  <AppStoreAnnouncement/>
                 </ScrollFadeIn>
                 <br className="py-[20rem]"></br>
             </div>
