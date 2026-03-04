@@ -58,23 +58,26 @@ const NavBar: React.FC = () => {
                         <Link to={"/"}>
                             <img src="./hh_logo.svg" className='max-w-[8rem]' alt="" />
                         </Link>
-                        <Button onClick={() => setMenuOpen(!menuOpen)} appendBefore={<ListIcon />} label="Menu" size="rounded" variant="secondary" fillWidth={false} />
+                        <Button onClick={() => setMenuOpen(!menuOpen)} appendBefore={<ListIcon />} size="rounded" variant="secondary" fillWidth={false} />
                     </div>
                     {menuOpen && (
                         <div className="right-0 mt-2 bg-neutral-800 rounded-lg shadow-lg z-50 p-4">
                             <ul style={{ display: 'block', listStyle: 'none', margin: 0, padding: 0 }}>
+                                <li>
+                                    <Link to="https://portal.hearthero.app" target="_blank" rel="noopener noreferrer">
+                                        <Button label="Login to Portal" variant='primary' size='lg' />
+                                    </Link>
+                                </li>
                                 {navLinks.map(link => (
                                     <li key={link.name}>
                                         <Button link={link.path} onClick={() => setMenuOpen(false)} label={link.name} variant='tertiary' size='lg' />
                                     </li>
                                 ))}
-                                <li>
-                                    <Button link="https://portal.hearthero.app" onClick={() => setMenuOpen(false)} label="Access Portal" variant='secondary' size='lg' />
-                                </li>
+                                <br />
                             </ul>
                             <Button icon={<X />} label='Close' variant="secondary" size="lg" onClick={() => setMenuOpen(false)} fillWidth={false} />
                         </div>
-                    )}access
+                    )}
                 </div>
             ) : (
                 <div className='flex flex-row justify-between items-center'>
@@ -88,7 +91,7 @@ const NavBar: React.FC = () => {
                             ))}
                         </ul>
                     </div>
-                    <Link to="https://portal.hearthero.app">
+                    <Link to="https://portal.hearthero.app" target="_blank" rel="noopener noreferrer">
                         <Button label="Login to Portal" size="md" variant="primary" fillWidth={false} type='button'/>
                     </Link>
                 </div>
