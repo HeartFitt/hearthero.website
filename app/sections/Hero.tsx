@@ -16,7 +16,7 @@ type ProductCardContent = {
 const cardContent: ProductCardContent[] = [
     {
         title: "Personal",
-        actionButton: <Button onClick={() => window.location.href = "/personal"} label="Join the Waitlist" size="lg" variant="primary" fillWidth={true} />,
+        actionButton: <Button onClick={() => window.location.href = "/personal"} label="Download Now" size="lg" variant="primary" fillWidth={true} />,
   icon: PersonStanding,
         iconColor: "var(--orange-500)",
         desc: "Make exercise fun & climb the leaderboard",
@@ -28,7 +28,7 @@ const cardContent: ProductCardContent[] = [
     },
     {
         title: "Business",
-        actionButton: <Button onClick={() => window.location.href = "/business"} label="Learn More" size="lg" variant="primary" fillWidth={true} />,
+        actionButton: <Button onClick={() => window.location.href = "/business"} label="Learn More" size="lg" variant="secondary" fillWidth={true} />,
   icon: Building,
         iconColor: "var(--green-500)",
         desc: "Earn revenue by members that train from home.",
