@@ -1,3 +1,5 @@
+import * as React from 'react';
+
 import {
   isRouteErrorResponse,
   Links,
@@ -26,13 +28,34 @@ export const links: Route.LinksFunction = () => [
   },
 ];
 
+export const SmartBannerConfig = (
+  <>
+    <meta name="smartbanner:title" content="HeartHero SOLO"/>
+    <meta name="smartbanner:author" content="HeartFitt LLC"/>
+    <meta name="smartbanner:price" content="FREE"/>
+    <meta name="smartbanner:price-suffix-google" content=" - In Google Play"/>
+    <meta name="smartbanner:icon-google" content="https://play-lh.googleusercontent.com/_wPWlbUxcJ4CbqXtM7GfGQ0KNJpOJ9lZC9dhX0h6khnFds-O3_2ZT0303y1TvoB0QB_8-KSQNRRrFReSbUAS4w=w240-h480"/>
+    <meta name="smartbanner:button" content="View"/>
+    <meta name="smartbanner:button-url-google" content="https://play.google.com/store/apps/details?id=app.hearthero.solo"/>
+    <meta name="smartbanner:close-label" content="Close"/>
+    <meta name="smartbanner:hide-ttl" content="1296000"/>
+    <meta name="smartbanner:button-url-apple" content="https://apps.apple.com/us/app/hearthero-solo/id6757622917"/>
+    <meta name="smartbanner:icon-apple" content="/hearthero_app_icon_500x500.png"/>
+    <link rel="stylesheet" href="/dist/smartbanner.min.css"/>
+    {/* <script src="/dist/smartbanner.min.js"/> */}
+  </>
+)
+
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {/* Default iOS banner on Safari Only: */}
         <meta name="apple-itunes-app" content="app-id=6757622917"></meta>
+        {/* Other banners: */}
+        {SmartBannerConfig}
         <Meta />
         <Links />
       </head>
@@ -50,7 +73,32 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
+ const [isClient, setIsClient] = React.useState(false);
+
+  React.useEffect(() => {
+    setIsClient(true); // Only true after mount (client)
+
+    if (!isClient) return; // redundant but clear
+
+    const isIosSafari = 
+      /iPad|iPhone|iPod/.test(navigator.userAgent) &&
+      !/CriOS| FxiOS/.test(navigator.userAgent); // not Chrome/Firefox on iOS
+
+    // Only run on mobile
+    if (!isIosSafari && /Mobi|Android|iPhone|iPad|iPod/.test(navigator.userAgent)) {
+      // Dynamic import → code only loads/executes in browser
+      import('smartbanner.js').then((module) => {
+        // If it exports a default function that initializes
+        module.default?.(); // or just module.smartbanner?.() — check the lib's export
+        // Some versions call it as a function: smartbanner();
+      }).catch(err => {
+        console.error('Failed to load smartbanner.js', err);
+      });
+    }
+  }, [isClient]);
+
   return <Outlet />;
+
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {

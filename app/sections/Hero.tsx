@@ -51,7 +51,7 @@ export function Hero() {
         {/* Wrapper */}
         <div className='flex flex-col items-center gap-[2rem] md:gap-[6rem]'>
           {/* Title */}
-          <div className="w-full align-center text-center pt-16">
+          <div className="w-full align-center text-center pt-16 items-center">
             <h1 className='title-1'>
               Gamified,
               <br />
@@ -60,7 +60,7 @@ export function Hero() {
             </h1>
           </div>
           {/* Cards */}
-          <div className='grid grid-cols-1 gap-4 sm:grid-cols-2'>
+          <div className='grid grid-cols-1 gap-2 sm:grid-cols-2 m-2'>
             {cardContent.map((card, index) => (
               <ProductCard
                 key={index}
