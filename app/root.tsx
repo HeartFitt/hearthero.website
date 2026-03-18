@@ -41,7 +41,7 @@ export const SmartBannerConfig = (
     <meta name="smartbanner:hide-ttl" content="1296000"/>
     <meta name="smartbanner:button-url-apple" content="https://apps.apple.com/us/app/hearthero-solo/id6757622917"/>
     <meta name="smartbanner:icon-apple" content="/hearthero_app_icon_500x500.png"/>
-    <link rel="stylesheet" href="/dist/smartbanner.min.css"/>
+    {/* <link rel="stylesheet" href="/dist/smartbanner.min.css"/> */}
     {/* <script src="/dist/smartbanner.min.js"/> */}
   </>
 )
@@ -73,29 +73,37 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
- const [isClient, setIsClient] = React.useState(false);
+ const [isMounted, setIsMounted] = React.useState(false);
 
   React.useEffect(() => {
-    setIsClient(true); // Only true after mount (client)
+    setIsMounted(true); // Only true after mount (client)
 
-    if (!isClient) return; // redundant but clear
+    if (!isMounted) return; // redundant but clear
 
     const isIosSafari = 
       /iPad|iPhone|iPod/.test(navigator.userAgent) &&
       !/CriOS| FxiOS/.test(navigator.userAgent); // not Chrome/Firefox on iOS
 
-    // Only run on mobile
-    if (!isIosSafari && /Mobi|Android|iPhone|iPad|iPod/.test(navigator.userAgent)) {
-      // Dynamic import → code only loads/executes in browser
-      import('smartbanner.js').then((module) => {
-        // If it exports a default function that initializes
-        module.default?.(); // or just module.smartbanner?.() — check the lib's export
-        // Some versions call it as a function: smartbanner();
-      }).catch(err => {
-        console.error('Failed to load smartbanner.js', err);
-      });
+    if (isIosSafari) return;
+      // Only run on mobile
+    if (/Mobi|Android|iPhone|iPad|iPod/.test(navigator.userAgent)) {
+      console.log('Smartbanner: Mobile detected, loading...');
+
+      // Import CSS as side-effect (Vite bundles & injects it automatically)
+      import('smartbanner.js/dist/smartbanner.min.css');
+
+      // Import & init JS
+      import('smartbanner.js')
+        .then((module) => {
+          // Call the init function (default export is usually the init fn)
+          module.default?.();
+          console.log('Smartbanner: Initialized');
+        })
+        .catch((err) => {
+          console.error('Smartbanner load failed:', err);
+        });
     }
-  }, [isClient]);
+  }, [isMounted]);
 
   return <Outlet />;
 
