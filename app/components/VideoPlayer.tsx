@@ -6,8 +6,8 @@ const VideoPlayer = () => {
   return (
     <video className="h-full w-full rounded-lg" poster="/poster.png" controls>
       <source
-        src="/hh_placeholder.mp4"
-        type="video/mp4"
+        src="/copy_E2384F24-E88C-4280-AAA3-071CB308FEB6.mov"
+        type="video/mov"
       />
       Your browser does not support the video tag.
     </video>
