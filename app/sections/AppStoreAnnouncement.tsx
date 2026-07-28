@@ -10,13 +10,13 @@ export default function AppStoreAnnouncement() {
       <div className="text-center flex flex-col max-w-2xl mx-auto gap-4">
         
         {/* Main heading */}
-        <h2 className="text-5xl md:text-6xl font-bold text-white tracking-tight">
-          Download Now!
-        </h2>
+        <h1 className="text-5xl md:text-6xl font-bold text-white tracking-tight">
+          Download  HeartHero SOLO
+        </h1>
         
         {/* Subtitle */}
         <h6 className="text-neutral-500">
-          Available on Apple AppStore and Coming to Google Play Store.
+          Available now on iOS AppStore and Coming to Google Play Store.
         </h6>
         <div className='my-5'>
           {/* App store buttons */}

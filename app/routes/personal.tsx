@@ -13,19 +13,19 @@ export default function Personal() {
         <>
             <div className="flex flex-col pt-32 px-4 gap-10">
                 {/* Back Button and Title */}
+                <ScrollFadeIn direction="up" delay={0.4}>
+                    <div>
+                        <Button onClick={() => window.history.back()} icon={<ArrowLeft size={24} strokeWidth={3}/>} variant="icon" />   
+                    </div>
+                    <br/>
+                    <AppStoreAnnouncement/>
+                </ScrollFadeIn>
                 <ScrollFadeIn direction="up">
                   <div className="flex flex-col gap-4">
-                      <div>
-                         <Button onClick={() => window.history.back()} icon={<ArrowLeft size={24} strokeWidth={3}/>} variant="icon" />   
-                      </div>
-                      <br/>
-                      <h1>Personal</h1>
-                      <h6 className="px-1 text-neutral-400">Fat burn starts in Blue Recovery, builds with Green Endurance, and ignites in Orange & Red Power. Cardio becomes a game worth playing.</h6>
+                      {/* <h3>Supercharge your personal workout</h3> */}
+                      {/* <h6 className="px-1 text-neutral-400">Fat burn starts in Blue Recovery, builds with Green Endurance, and ignites in Orange & Red Power. Cardio becomes a game worth playing.</h6> */}
                       <VideoPlayer />
                   </div>
-                </ScrollFadeIn>
-                <ScrollFadeIn direction="up" delay={0.4}>
-                  <AppStoreAnnouncement/>
                 </ScrollFadeIn>
                 <ScrollFadeIn direction="up" delay={0.2}>
                   <div>
