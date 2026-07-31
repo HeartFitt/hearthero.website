@@ -326,17 +326,21 @@ const ContactForm = () => {
 
             {/* Required agreement checkbox with inline Privacy Policy link */}
       <Checkbox
-      label={
-        <>
-        By clicking here, you consent to receive Customer Care and Account Notification SMS from HeartHero Fitness.
-        Message frequency may vary. Standard Message and Data Rates may apply. Reply STOP to opt out. Reply HELP
-        for help. See our{" "}
-        <Link to="/privacy-policy" target="_blank" className="underline">
-          Privacy Policy
-        </Link>
-        .
-        </>
-      }
+        label={
+          <>
+          You agree to receive customer care-related or one-on-one communication messages from HeartHero Fitness.
+          Message frequency may vary. Standard Message and Data Rates may apply. Reply STOP to opt out. Reply HELP
+          for help. See our{" "}
+          <Link to="/privacy-policy" target="_blank" className="underline">
+            Privacy Policy
+          </Link>
+          {/* and our {" "}
+          <Link to="/privacy-policy" target="_blank" className="underline">
+            Terms and Conditions
+          </Link> */}
+          .
+          </>
+        }
       name="termsAccepted"
       checked={formData.termsAccepted}
       onChange={handleChange}
