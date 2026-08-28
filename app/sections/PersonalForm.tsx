@@ -207,8 +207,6 @@ const ContactForm = () => {
       onChange={handleChange}
       />
 
-      {/* Only show these once the required agreement is checked */}
-      {formData.termsAccepted && (
       <div className='ml-10'>
         <Checkbox
         label="Opt-out of SMS notifications"
@@ -224,7 +222,6 @@ const ContactForm = () => {
         onChange={handleChange}
         />
       </div>
-      )}
 
       <Button
       label={submitting ? 'Submitting…' : 'Submit'}
