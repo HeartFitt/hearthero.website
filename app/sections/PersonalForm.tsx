@@ -186,7 +186,6 @@ const ContactForm = () => {
 
       {/* Required agreement checkbox with inline Privacy Policy link */}
       <Checkbox
-      required
       label={
         <>
         You agree to receive customer care-related or one-on-one communication messages from HeartHero Fitness.
@@ -207,27 +206,29 @@ const ContactForm = () => {
       onChange={handleChange}
       />
 
-      <div className='ml-10'>
-        <Checkbox
-        label="Opt-out of SMS notifications"
-        name="optOutSMS"
-        checked={formData.optOutSMS}
-        onChange={handleChange}
-        />
+      { formData.termsAccepted && (
+        <div className='ml-10'>
+          <Checkbox
+          label="Opt-out of SMS notifications"
+          name="optOutSMS"
+          checked={formData.optOutSMS}
+          onChange={handleChange}
+          />
 
-        <Checkbox
-        label="Opt-out of Email notifications"
-        name="optOutEmail"
-        checked={formData.optOutEmail}
-        onChange={handleChange}
-        />
-      </div>
+          <Checkbox
+          label="Opt-out of Email notifications"
+          name="optOutEmail"
+          checked={formData.optOutEmail}
+          onChange={handleChange}
+          />
+        </div>
+      )}
 
       <Button
       label={submitting ? 'Submitting…' : 'Submit'}
       onClick={handleSubmit}
       icon={<Check />}
-      disabled={!isFormValid || submitting || !formData.termsAccepted}
+      disabled={!isFormValid || submitting}
       fillWidth
       />
     </form>
