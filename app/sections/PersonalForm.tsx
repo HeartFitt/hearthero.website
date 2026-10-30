@@ -90,7 +90,7 @@ const ContactForm = () => {
         ownsStrap: formData.ownsStrap,
         goals: formData.goals,
       }) as string,
-      Opt_Out_SMS: formData.optOutSMS,
+      Opt_Out_SMS: formData.optOutSMS || !formData.termsAccepted,
       Opt_Out_Email: formData.optOutEmail,
     };
 

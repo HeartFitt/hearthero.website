@@ -127,7 +127,7 @@ const ContactForm = () => {
         memberCount: formData.memberCount,
         offersCycling: formData.offersCycling,
       }),
-      Opt_Out_SMS: formData.optOutSMS,
+      Opt_Out_SMS: formData.optOutSMS || !formData.termsAccepted,
       Opt_Out_Email: formData.optOutEmail,
     };
 
