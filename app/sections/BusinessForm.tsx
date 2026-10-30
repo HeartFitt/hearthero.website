@@ -364,7 +364,7 @@ const ContactForm = () => {
       label={submitting ? 'Submitting…' : 'Submit'}
       onClick={handleSubmit}
       icon={<Check />}
-      disabled={!isFormValid || submitting || !formData.termsAccepted}
+      disabled={!isFormValid || submitting}
       fillWidth
       />
     </form>
