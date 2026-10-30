@@ -90,7 +90,7 @@ const ContactForm = () => {
         ownsStrap: formData.ownsStrap,
         goals: formData.goals,
       }) as string,
-      Opt_Out_SMS: formData.optOutSMS,
+      Opt_Out_SMS: formData.optOutSMS || !formData.termsAccepted,
       Opt_Out_Email: formData.optOutEmail,
     };
 
@@ -184,21 +184,18 @@ const ContactForm = () => {
         error={formErrors.goals}
       />
 
-      {/* Required agreement checkbox with inline Privacy Policy link */}
       <Checkbox
       label={
         <>
-        You agree to receive customer care-related or one-on-one communication messages from HeartHero Fitness.
-        Message frequency may vary. Standard Message and Data Rates may apply. Reply STOP to opt out. Reply HELP
-        for help. See our{" "}
+        By clicking here you consent to receive sms customer care-related or one-on-one communication messages from HeartHero Fitness.
+        Message frequency may vary. Standard Message and Data Rates may apply. Reply STOP to opt out. Reply Help
+        for help.{" "}
         <Link to="/privacy-policy" target="_blank" className="underline">
           Privacy Policy
-        </Link>
-        {/* and our {" "}
-        <Link to="/privacy-policy" target="_blank" className="underline">
+        </Link>{" "}
+        <Link to="/terms-and-conditions" target="_blank" className="underline">
           Terms and Conditions
-        </Link> */}
-        .
+        </Link>
         </>
       }
       name="termsAccepted"
