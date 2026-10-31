@@ -341,7 +341,6 @@ const ContactForm = () => {
       name="termsAccepted"
       checked={formData.termsAccepted}
       onChange={handleChange}
-      required
       />
 
       <div className='ml-10'>
