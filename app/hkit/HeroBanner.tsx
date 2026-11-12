@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import ScrollFadeIn from "~/components/ScrollFadeIn";
+import Button from "~/hkit/Button";
 
 type HeroBannerProps = {
   eyebrow?: string;
@@ -12,14 +13,23 @@ type HeroBannerProps = {
 };
 
 export default function HeroBanner({ eyebrow, title, accent, body, actions, videoSrc, poster }: HeroBannerProps) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [paused, setPaused] = useState(false);
+  const togglePlay = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.paused ? video.play() : video.pause();
+    setPaused(video.paused);
+  };
+
   const lines = [
-    eyebrow && <p className="text-sm md:text-base font-bold uppercase tracking-[0.2em] text-[var(--orange-500)]">{eyebrow}</p>,
+    eyebrow && <p className="text-sm md:text-base font-bold uppercase tracking-[0.2em] text-[var(--red-500)]">{eyebrow}</p>,
     <h1 className="title-1">
       {title}
       {accent && (
         <>
           <br />
-          <span className="text-[var(--orange-500)]">{accent}</span>
+          <span className="text-[var(--red-500)]">{accent}</span>
         </>
       )}
     </h1>,
@@ -28,8 +38,8 @@ export default function HeroBanner({ eyebrow, title, accent, body, actions, vide
   ].filter(Boolean);
 
   return (
-    <section className="relative h-[100svh] min-h-[600px] w-full flex items-end lg:items-center overflow-hidden pb-12 lg:pb-0">
-      <video autoPlay loop muted playsInline preload="auto" poster={poster} className="absolute inset-0 w-full h-full object-cover">
+    <section className="relative h-screen min-h-[600px] w-screen shrink-0 flex items-end lg:items-center overflow-hidden pb-12 lg:pb-0">
+      <video ref={videoRef} autoPlay loop muted playsInline preload="auto" poster={poster} className="absolute inset-0 w-full h-full object-cover">
         <source src={videoSrc} type="video/mp4" />
       </video>
       <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-[var(--neutral-900)] via-[var(--neutral-900)]/60 to-transparent" />
@@ -39,6 +49,9 @@ export default function HeroBanner({ eyebrow, title, accent, body, actions, vide
             {line}
           </ScrollFadeIn>
         ))}
+      </div>
+      <div className="absolute bottom-4 right-4 opacity-60 hover:opacity-100 transition-opacity">
+        <Button variant="tertiary" size="sm" label={paused ? "Play video" : "Pause video"} onClick={togglePlay} />
       </div>
     </section>
   );

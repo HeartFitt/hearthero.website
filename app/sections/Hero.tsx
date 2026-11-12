@@ -45,12 +45,12 @@ export function Hero() {
   return (
     <main className="flex flex-col items-center w-full">
       <HeroBanner
-        eyebrow="Gamified fitness for home and clubs"
+        eyebrow="HeartHero Fitness"
         title="Gamified,"
         accent="Heart-Healthy Exercise."
         body="Turn every workout into a game. Burn fat, train smarter, and climb the leaderboard."
-        videoSrc="/hh_placeholder.mp4"
-        poster="/hh_b_video-cover.png"
+        videoSrc="https://videos.pexels.com/video-files/19282244/19282244-hd_1920_1080_25fps.mp4"
+        
         actions={
           <>
             <Button link="/personal" label="Download Now" size="lg" variant="primary" />
