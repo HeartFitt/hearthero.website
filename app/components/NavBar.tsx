@@ -48,7 +48,7 @@ const NavBar: React.FC = () => {
 
     return (
         <nav
-            className={`fixed z-[999] bg-neutral-800 right-0 left-0 py-2 px-2 m-2 rounded-lg items-center gap-10 justify-between transition duration-300 ${
+            className={`fixed z-[999] bg-neutral-800/60 backdrop-blur right-0 left-0 py-2 px-2 m-2 rounded-lg items-center gap-10 justify-between transition duration-300 ${
                 hidden ? '-translate-y-[100px]' : 'translate-y-0'
             }`}
         >
