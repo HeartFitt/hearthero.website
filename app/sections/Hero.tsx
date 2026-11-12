@@ -2,6 +2,7 @@ import React from "react";
 import { PersonStanding, Check, Building } from "lucide-react";
 import ProductCard from "~/components/ProductCard";
 import Button from "~/hkit/Button";
+import HeroBanner from "~/hkit/HeroBanner";
 import type { LucideIcon } from "lucide-react";
 
 type ProductCardContent = {
@@ -42,24 +43,23 @@ const cardContent: ProductCardContent[] = [
 
 export function Hero() {
   return (
-    <main className="flex items-center justify-center pt-16">
-      {/* Hero */}
-      <section>
-        {/* Gradient */}
-        <img src="./hh_gradient.png" alt="background gradient" className="absolute z-[-1] blur-[125px] left-[50%] translate-x-[-50%] translate-y-[-50%] top-[50%]" />
-        {/* <img src="./hh_bike.png" alt="background gradient" className="absolute z-[-2] left-[50%] translate-x-[-50%] bottom-0 w-[100vw] max-w-[1200px]" style={{boxShadow: "25 25 50px 50px var(--neutral-900) inset"}} /> */}
-        {/* Wrapper */}
-        <div className='flex flex-col items-center gap-[2rem] md:gap-[6rem]'>
-          {/* Title */}
-          <div className="w-full align-center text-center pt-16 items-center">
-            <h1 className='title-1'>
-              Gamified,
-              <br />
-              Heart-Healthy <br />
-              Exercise.
-            </h1>
-          </div>
-          {/* Cards */}
+    <main className="flex flex-col items-center w-full">
+      <HeroBanner
+        eyebrow="Gamified fitness for home and clubs"
+        title="Gamified,"
+        accent="Heart-Healthy Exercise."
+        body="Turn every workout into a game. Burn fat, train smarter, and climb the leaderboard."
+        videoSrc="/hh_placeholder.mp4"
+        poster="/hh_b_video-cover.png"
+        actions={
+          <>
+            <Button link="/personal" label="Download Now" size="lg" variant="primary" />
+            <Button link="/business" label="For Business" size="lg" variant="secondary" />
+          </>
+        }
+      />
+      <section className="py-16">
+        <div className='flex flex-col items-center'>
           <div className='grid grid-cols-1 gap-2 sm:grid-cols-2 m-2'>
             {cardContent.map((card, index) => (
               <ProductCard
